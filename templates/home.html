@@ -1,2 +1,72 @@
-<h1>hello world
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Boston Housing Price Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            color: #333;
+        }
+        form {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            width: 100%;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h2>Boston Housing Price Prediction</h2>
+    <form action="/predict" method="POST">
+        <label>CRIM: <input type="number" step="any" name="CRIM" required></label>
+        <label>ZN: <input type="number" step="any" name="ZN" required></label>
+        <label>INDUS: <input type="number" step="any" name="INDUS" required></label>
+        <label>CHAS (0 or 1): <input type="number" step="1" name="CHAS" required></label>
+        <label>NOX: <input type="number" step="any" name="NOX" required></label>
+        <label>RM: <input type="number" step="any" name="RM" required></label>
+        <label>AGE: <input type="number" step="any" name="AGE" required></label>
+        <label>DIS: <input type="number" step="any" name="DIS" required></label>
+        <label>RAD: <input type="number" step="any" name="RAD" required></label>
+        <label>TAX: <input type="number" step="any" name="TAX" required></label>
+        <label>PTRATIO: <input type="number" step="any" name="PTRATIO" required></label>
+        <label>B: <input type="number" step="any" name="B" required></label>
+        <label>LSTAT: <input type="number" step="any" name="LSTAT" required></label>
+
+        <button type="submit">Predict Price</button>
+    </form>
+
+    {% if prediction_text %}
+    <h3>{{ prediction_text }}</h3>
+    {% endif %}
+
+</body>
+</html>
